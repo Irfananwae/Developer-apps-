@@ -4,111 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Apps - Professional Portfolio</title>
-    <!-- Link to your CSS file -->
+    <title>Developer Apps - Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Link to an icon library for social media icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-    <!-- Header & Navigation Bar -->
     <header id="main-header">
         <div class="container">
             <h1 class="logo">Developer Apps</h1>
             <nav>
                 <a href="#hero">Home</a>
-                <a href="#services">Services</a>
                 <a href="#portfolio">Portfolio</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section id="hero">
         <div class="hero-content">
             <h2>Modern Websites & Powerful Apps</h2>
             <p>I bring your ideas to life with professional code and beautiful design.</p>
             <div class="social-links">
-                <a href="https://www.instagram.com/website_developer06?igsh=djk5bXM5MDFhNTVq" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:imirfan7738t@gmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-            <a href="#contact" class="cta-button">Order Now</a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="section">
-        <div class="container">
-            <h2 class="section-title">What I Offer</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Web Development</h3>
-                    <p>Responsive, fast, and secure websites tailored to your business needs.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>App Development</h3>
-                    <p>Intuitive and high-performance mobile apps for both Android and iOS.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-pencil-ruler"></i>
-                    <h3>Advanced UI/UX</h3>
-                    <p>Engaging and user-friendly interfaces that provide an amazing user experience.</p>
-                </div>
+                <a href="https://www.instagram.com/website_developer06?igsh=djk5bXM5MDFhNTVq" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:imirfan7738t@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
     <section id="portfolio" class="section">
         <div class="container">
             <h2 class="section-title">My Work</h2>
             <div class="portfolio-grid" id="portfolio-grid">
-                <!-- Portfolio projects will be dynamically loaded here by script.js -->
+                <!-- Projects will be loaded here by JavaScript -->
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
+    
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="section-title">Let's Build Something Amazing</h2>
-            <form id="contact-form">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <textarea id="message" placeholder="Tell me about your project" rows="7" required></textarea>
-                <button type="submit" class="cta-button">Send Order Request</button>
-            </form>
+             <h2 class="section-title">Contact Me</h2>
+             <p>Ready to start your project? Send me a message!</p>
+             <!-- Add your contact form or details here -->
         </div>
     </section>
 
-    <!-- Floating Action Button to Add Project -->
-    <button id="add-project-button" aria-label="Add New Project"><i class="fas fa-plus"></i></button>
-
-    <!-- Modal for Adding a New Project -->
-    <div id="project-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h3>Add a New Project</h3>
-            <form id="project-form">
-                <input type="text" id="project-title" placeholder="Project Title" required>
-                <input type="text" id="project-image" placeholder="Image URL" required>
-                <textarea id="project-description" placeholder="Project Description" rows="4" required></textarea>
-                <button type="submit" class="cta-button">Save Project</button>
-            </form>
-        </div>
+    <div class="theme-switcher">
+        <button id="light-theme-btn" class="theme-btn active"><i class="fas fa-sun"></i></button>
+        <button id="dark-theme-btn" class="theme-btn"><i class="fas fa-moon"></i></button>
     </div>
-    
-    <!-- Footer -->
+
     <footer>
-        <p>&copy; 2025 Developer Apps. All Rights Reserved.</p>
+        <p>&copy; 2025 Developer Apps. All Rights Reserved. <a href="login.html">Admin Login</a></p>
     </footer>
 
-    <!-- Link to your JavaScript file -->
-    <script src="script.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
 
