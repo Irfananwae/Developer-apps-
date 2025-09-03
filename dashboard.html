@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Developer Apps</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body id="dashboard-body">
+    
+    <header id="main-header">
+        <div class="container">
+            <h1 class="logo"><i class="fas fa-user-cog"></i> Dashboard</h1>
+            <nav>
+                <span id="user-email-display"></span>
+                <button id="logout-btn" class="cta-button secondary">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container section">
+        <h2 class="section-title">Manage Your Projects</h2>
+        <div class="dashboard-container">
+            <div class="dashboard-card add-project-card">
+                <h3>Add a New Project</h3>
+                <form id="project-form">
+                    <div class="input-group">
+                        <input type="text" id="project-title" placeholder="Project Title" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="project-image" placeholder="Image URL" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="project-description" rows="4" placeholder="Short Description" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Add Project</button>
+                </form>
+            </div>
+            
+            <div id="project-list" class="project-list-container">
+                <!-- User's projects will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <div class="theme-switcher">
+        <button id="light-theme-btn" class="theme-btn active" title="Light Mode"><i class="fas fa-sun"></i></button>
+        <button id="dark-theme-btn" class="theme-btn" title="Dark Mode"><i class="fas fa-moon"></i></button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
+
