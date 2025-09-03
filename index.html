@@ -4,61 +4,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Apps - Showcase Your Projects</title>
+    <title>Developer Apps - Advanced Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Fixed Background -->
+    <div class="fixed-background"></div>
+
     <header id="main-header">
         <div class="container">
             <h1 class="logo"><i class="fas fa-rocket"></i> Developer Apps</h1>
             <nav>
-                <a href="#features">Features</a>
-                <a href="auth.html" class="cta-button">Get Started</a>
+                <a href="#projects">Projects</a>
+                <a href="#profile-tab" id="show-profile-btn">My Profile</a>
             </nav>
         </div>
     </header>
 
-    <section id="hero">
-        <div class="hero-content">
-            <h2>The Ultimate Platform to Showcase Your Work</h2>
-            <p>Sign up, upload your projects, and manage your personal portfolio with ease.</p>
-            <a href="auth.html" class="cta-button large">Create Your Portfolio Now</a>
-        </div>
-    </section>
+    <!-- Overlapping Content -->
+    <main class="scrollable-content">
+        <section id="hero">
+            <div class="hero-content">
+                <h2>Building the Future, One Line of Code at a Time.</h2>
+                <p>Advanced Web & App Development Services</p>
+                <a href="#projects" class="cta-button large">Get Started</a>
+            </div>
+        </section>
 
-    <section id="features" class="section">
-        <div class="container">
-            <h2 class="section-title">Advanced Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-user-shield"></i>
-                    <h3>User Accounts</h3>
-                    <p>A secure system for you to sign up, log in, and manage your profile.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <h3>Project Uploads</h3>
-                    <p>Easily add, update, and delete projects from your personal dashboard.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-palette"></i>
-                    <h3>Advanced UI</h3>
-                    <p>Experience a modern 3D-inspired interface with light and dark themes.</p>
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Showcase</h2>
+                <div id="portfolio-grid" class="portfolio-grid">
+                    <!-- Admin projects will be loaded here -->
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 Developer Apps. All Rights Reserved. <a href="admin_login.html" target="_blank">Admin Portal</a></p>
+        </footer>
+    </main>
 
-    <div class="theme-switcher">
-        <button id="light-theme-btn" class="theme-btn active" title="Light Mode"><i class="fas fa-sun"></i></button>
-        <button id="dark-theme-btn" class="theme-btn" title="Dark Mode"><i class="fas fa-moon"></i></button>
+    <!-- My Profile Tab (Initially Hidden) -->
+    <div id="profile-tab" class="profile-tab-container">
+        <div class="profile-card">
+            <button id="close-profile-btn" class="close-btn">&times;</button>
+            <div class="profile-header">
+                <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-picture">
+                <div class="profile-title">
+                    <h3 id="profile-name"></h3>
+                    <div class="verified-tick"><i class="fas fa-check"></i></div>
+                </div>
+                <p class="profile-username" id="profile-username"></p>
+            </div>
+            <div class="profile-body">
+                <h4>About Me</h4>
+                <p id="profile-bio"></p>
+                <h4>Skills</h4>
+                <div class="skills-container" id="profile-skills"></div>
+            </div>
+        </div>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Developer Apps. All Rights Reserved.</p>
-    </footer>
-
+    <!-- Messenger Feature -->
+    <div id="messenger-container">
+        <button id="messenger-toggle"><i class="fas fa-comments"></i></button>
+        <div class="messenger-box">
+            <div class="messenger-header">
+                <h3>Users</h3>
+            </div>
+            <div class="messenger-user-list" id="messenger-users">
+                <!-- Fake users will be generated here -->
+            </div>
+        </div>
+    </div>
+    
     <script src="main.js"></script>
 </body>
 </html>
