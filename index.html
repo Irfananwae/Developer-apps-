@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Apps - Commission Custom Apps</title>
+    <title>Developer Apps - Official Feed</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -15,9 +15,8 @@
         <div class="container">
             <h1 class="logo"><i class="fas fa-rocket"></i> Developer Apps</h1>
             <nav>
-                <a href="#projects">My Work</a>
-                <a href="#" id="show-profile-btn">My Profile</a>
-                <a href="auth.html" class="cta-button">Login or Sign Up</a>
+                <a href="my_profile.html">My Profile</a>
+                <a href="auth.html" class="cta-button">Login to Order an App</a>
             </nav>
         </div>
     </header>
@@ -25,46 +24,18 @@
     <main class="scrollable-content">
         <section id="hero">
             <div class="hero-content glass-card">
-                <h2>Your Vision, Engineered.</h2>
-                <p>Log in to commission a custom-built web or mobile application from a verified developer.</p>
-                <a href="auth.html" class="cta-button large">Get Started</a>
+                <h2>The Official Feed</h2>
+                <p>Latest updates, projects, and announcements from the developer.</p>
             </div>
         </section>
 
-        <section id="projects" class="section">
-            <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
-                <div id="portfolio-grid" class="portfolio-grid">
-                    <!-- Projects uploaded by the admin will appear here -->
-                </div>
+        <section id="threads-feed" class="section">
+            <div class="container" id="threads-container">
+                <!-- Admin-posted threads will be dynamically loaded here -->
             </div>
         </section>
     </main>
     
-    <!-- My Profile Tab (Initially Hidden) -->
-    <div id="profile-tab" class="profile-tab-container">
-        <div class="profile-card glass-card">
-            <button id="close-profile-btn" class="close-btn">&times;</button>
-            <div class="profile-header">
-                <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-picture">
-                <div class="profile-title">
-                    <h3 id="profile-name"></h3>
-                    <div class="verified-tick"><i class="fas fa-check"></i></div>
-                </div>
-                <p class="profile-username" id="profile-username"></p>
-            </div>
-            <div class="profile-body">
-                <h4>About Me</h4>
-                <p id="profile-bio"></p>
-                <h4>Contact Directly</h4>
-                <div class="contact-links">
-                     <a href="https://www.instagram.com/website_developer06?igsh=djk5bXM5MDFhNTVq" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-                     <a href="mailto:imirfan7738t@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <footer>
         <p>&copy; 2025 Developer Apps. All Rights Reserved. <a href="admin_login.html">Admin Portal</a></p>
     </footer>
