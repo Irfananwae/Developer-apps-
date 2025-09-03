@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <form id="admin-login-form" class="auth-form active">
+            <h2 class="form-title">Admin Portal</h2>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="admin-email" placeholder="Admin Email" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="admin-password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="cta-button">Secure Login</button>
+            <p id="login-error" class="error-message"></p>
+            <p class="home-link"><a href="index.html">← Go to Main Site</a></p>
+        </form>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
+
