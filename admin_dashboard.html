@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body id="dashboard-body">
+    <header id="main-header">
+        <div class="container">
+            <h1 class="logo"><i class="fas fa-user-shield"></i> Admin Dashboard</h1>
+            <button id="logout-btn" class="cta-button secondary">Logout</button>
+        </div>
+    </header>
+
+    <main class="container section">
+        <h2 class="section-title">Manage Public Projects</h2>
+        <div class="dashboard-container">
+            <div class="dashboard-card add-project-card">
+                <h3><i class="fas fa-plus-circle"></i> Add New Project</h3>
+                <form id="project-form">
+                    <div class="input-group">
+                        <input type="text" id="project-title" placeholder="Project Title" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="project-image" placeholder="Image URL (e.g., from pexels.com)" required>
+                    </div>
+                    <button type="submit" class="cta-button">Upload to Site</button>
+                </form>
+            </div>
+            <div id="admin-project-list" class="project-list-container">
+                <!-- Admin's projects will be loaded here for management -->
+            </div>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
+
