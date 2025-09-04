@@ -6,12 +6,15 @@
 html { scroll-behavior: smooth; }
 body { font-family: 'Poppins', sans-serif; margin: 0; background-color: #0f172a; color: var(--text-color-dark); }
 .fixed-background { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover; z-index: -1; opacity: 0.8; }
+.fixed-background.admin-bg { background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); }
 .glass-card { background: var(--surface-color); backdrop-filter: var(--blur-effect); -webkit-backdrop-filter: var(--blur-effect); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg); box-shadow: 0 8px 32px 0 var(--shadow-color); padding: 40px; transition: var(--transition); transform-style: preserve-3d; }
-.glass-card:hover { transform: perspective(1000px) rotateY(5deg) scale(1.02); box-shadow: 0 12px 40px 0 rgba(0,0,0,0.2); }
+.glass-card:hover { transform: perspective(1000px) rotateY(3deg) scale(1.02); box-shadow: 0 12px 40px 0 rgba(0,0,0,0.2); }
 #main-header { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px; padding: 15px 30px; z-index: 100; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.1); backdrop-filter: var(--blur-effect); border-radius: 50px; border: 1px solid rgba(255,255,255,0.2); }
 #main-header .logo { font-weight: 600; color: #fff; }
 #main-header nav a, #main-header nav span { text-decoration: none; margin-left: 20px; font-weight: 400; color: #fff; }
-.scrollable-content { position: relative; z-index: 2; }
+.scrollable-content, #admin-dashboard-body main { position: relative; z-index: 2; }
+#admin-dashboard-body { color: var(--text-color-light); }
+#admin-dashboard-body .glass-card { --surface-color: rgba(0,0,0,0.2); border-color: rgba(255,255,255,0.1); }
 #hero { min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
 .hero-content { animation: fadeInUp 0.8s ease-out; }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
@@ -22,37 +25,27 @@ body { font-family: 'Poppins', sans-serif; margin: 0; background-color: #0f172a;
 .cta-button { background: var(--primary-color); color: #fff; padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; transition: var(--transition); display: inline-block; }
 .cta-button:hover { background-color: #0284c7; transform: translateY(-3px); box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4); }
 .cta-button.secondary { background-color: var(--secondary-color); }
+.cta-button.danger { background-color: var(--danger-color); }
 .input-group { position: relative; margin-bottom: 20px; }
 .input-group input, .input-group textarea { width: 100%; padding: 15px; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; background: rgba(0,0,0,0.2); color: var(--text-color-light); font-family: inherit; box-sizing: border-box; }
-.input-group input:focus, .input-group textarea:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.3); }
-.input-group i { position: absolute; left: 15px; top: 18px; color: #999; }
 .input-group input { padding-left: 45px; }
 
-/* Profile Page & Dashboard Profile */
+/* Profile & Reviews */
 .profile-page-card { max-width: 800px; margin: auto; text-align: center; }
-.profile-picture { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary-color); object-fit: cover; box-shadow: 0 4px 20px var(--shadow-color); }
+.profile-picture { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary-color); object-fit: cover; box-shadow: 0 4px 20px var(--shadow-color); background-color: rgba(255,255,255,0.1); }
 .verified-tick { width: 30px; height: 30px; background: #3498db; color: #fff; border-radius: 50%; display: grid; place-items: center; font-size: 1.1rem; animation: pulse 2s infinite; }
 @keyframes pulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 10px #3498db; } 50% { transform: scale(1.1); box-shadow: 0 0 20px #3498db; } }
 .skills-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
 .skill-badge { background: var(--primary-color); color: #fff; padding: 8px 18px; border-radius: 20px; font-size: 1rem; }
-.contact-links { display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+/* ... (Other existing styles remain the same) ... */
 
-/* Auth Page */
-.auth-page { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #0f172a; }
-.auth-container { max-width: 450px; width: 100%; }
-.auth-form { display: none; animation: slideIn 0.4s var(--transition) forwards; }
-@keyframes slideIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-.auth-form.active { display: block; }
-
-/* Dashboard */
-.dashboard-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
-@media(min-width: 992px) { .dashboard-grid { grid-template-columns: 1.5fr 1fr; } }
-.admin-dashboard-grid { display: grid; grid-template-columns: 1fr; gap: 30px; color: var(--text-color-light); }
-@media(min-width: 992px) { .admin-dashboard-grid { grid-template-columns: 1fr 1.5fr; } }
-.admin-dashboard-grid .glass-card { --surface-color: rgba(0,0,0,0.2); border-color: rgba(255,255,255,0.1); }
-.admin-dashboard-grid .cta-button:hover { box-shadow: 0 4px 15px rgba(14, 165, 233, 0.6); }
-
-/* Other Styles */
+/* NEW Styles for Admin Dashboard */
+.file-input-group { display: flex; align-items: center; gap: 15px; }
+.file-input-group input[type="file"] { display: none; }
+#file-name { font-style: italic; color: #bdc3c7; }
+.manage-threads-list { max-height: 450px; overflow-y: auto; padding-right: 10px; }
+.manage-thread-item { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 12px; margin-bottom: 10px; }
+.manage-thread-item p { margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 70%; }
 footer { text-align: center; padding: 40px 0; color: #fff; text-shadow: 1px 1px 5px #000; }
 footer a { color: #fff; }
 
