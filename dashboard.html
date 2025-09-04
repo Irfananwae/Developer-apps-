@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
+    <title>Client Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -12,27 +12,55 @@
     <div class="fixed-background"></div>
     <header id="main-header">
         <div class="container">
-            <h1 class="logo"><i class="fas fa-user-circle"></i> Dashboard</h1>
+            <h1 class="logo"><i class="fas fa-user-circle"></i> Client Dashboard</h1>
             <nav>
-                <span id="user-email-display"></span>
+                <span id="user-welcome-message"></span>
                 <button id="logout-btn" class="cta-button secondary">Logout</button>
             </nav>
         </div>
     </header>
+
     <main class="container section">
-        <div class="dashboard-container">
+        <div class="dashboard-grid">
+            <!-- Developer Profile shown to logged-in user -->
+            <div class="profile-page-card glass-card">
+                <div class="profile-header">
+                    <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture">
+                    <div class="profile-title">
+                        <h3 id="profile-name"></h3>
+                        <div class="verified-tick"><i class="fas fa-check"></i></div>
+                    </div>
+                    <p class="profile-username" id="profile-username"></p>
+                </div>
+                <div class="profile-body">
+                    <h4>About the Developer</h4>
+                    <p id="profile-bio"></p>
+                    <h4>Core Skills</h4>
+                    <div class="skills-container" id="profile-skills"></div>
+                    <hr>
+                    <h3>Ready to Start Your Project?</h3>
+                    <p>Use the direct connect buttons or send a detailed message using the form below.</p>
+                    <div class="contact-links large-icons">
+                         <a href="https://www.instagram.com/website_developer06?igsh=djk5bXM5MDFhNTVq" target="_blank" class="cta-button"><i class="fab fa-instagram"></i> Connect on Instagram</a>
+                         <a href="mailto:imirfan7738t@gmail.com" class="cta-button"><i class="fas fa-envelope"></i> Send an Email</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message Form for Orders -->
             <div class="dashboard-card glass-card">
-                <h3>Send an Order Request</h3>
+                <h3>Send a Detailed Order Request</h3>
                 <form id="message-form">
                     <div class="input-group">
-                        <textarea id="message-text" rows="5" placeholder="Describe the app or website you want..." required></textarea>
+                        <textarea id="message-text" rows="8" placeholder="Please describe the app or website you need. Include any key features, platforms (iOS, Android, Web), and your budget..." required></textarea>
                     </div>
-                    <button type="submit" class="cta-button">Send Message to Developer</button>
+                    <button type="submit" class="cta-button">Send Message</button>
                     <p id="message-success" class="success-message"></p>
                 </form>
             </div>
         </div>
     </main>
+
     <script src="main.js"></script>
 </body>
 </html>
