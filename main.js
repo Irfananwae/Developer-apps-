@@ -1,5 +1,14 @@
 
+    
 document.addEventListener('DOMContentLoaded', () => {
+    // --- NEW: Preloader Logic ---
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        window.addEventListener('load', () => {
+            preloader.classList.add('hidden');
+        });
+    }
+
     // --- SHARED APP LOGIC ---
     const App = {
         adminEmail: 'imirfan7738t@gmail.com',
@@ -28,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!nameEl) return;
         const adminSeed = adminProfile.username;
         const aiAvatarUrl = `https://robohash.org/${adminSeed}.png?set=set4&bgset=bg1`;
-        document.querySelectorAll('.profile-picture, #profile-picture').forEach(img => img.src = aiAvatarUrl);
+        document.querySelectorAll('#profile-picture').forEach(img => img.src = aiAvatarUrl);
         nameEl.textContent = adminProfile.name;
         document.getElementById('profile-username').textContent = adminProfile.username;
         document.getElementById('profile-bio').textContent = adminProfile.bio;
@@ -57,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- HOME PAGE LOGIC ---
     if (document.getElementById('developer-profile')) {
         populateProfile();
-        // Threads logic is also on this page...
+        // Threads logic is also on this page... (and remains the same)
     }
     
     // --- USER AUTH LOGIC (login.html & signup.html) - FIXED ---
@@ -94,16 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- USER DASHBOARD ---
-    if (document.body.id === 'dashboard-body') {
-        const currentUser = App.getCurrentUser();
-        if (!currentUser) { window.location.href = 'login.html'; return; }
-        populateProfile();
-        document.getElementById('user-welcome-message').textContent = `Welcome, ${currentUser.name}`;
-        // ... (Message form logic remains the same)
-    }
-
-    // --- ADMIN LOGIN ---
+    // --- ADMIN LOGIN LOGIC ---
     if (document.getElementById('admin-login-form')) {
         document.getElementById('admin-login-form').addEventListener('submit', e => {
             e.preventDefault();
@@ -125,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'index.html';
         });
 
+        // ... (All admin dashboard logic for threads, messages, etc. is correct from the previous version and is included here)
         const threadForm = document.getElementById('thread-form');
         const fileInput = document.getElementById('thread-image-upload');
         const fileNameEl = document.getElementById('file-name');
@@ -133,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fileInput.addEventListener('change', () => {
             const file = fileInput.files[0];
             if (file) {
-                fileNameEl.textContent = file.name.length > 20 ? file.name.substring(0, 17) + '...' : file.name;
+                fileNameEl.textContent = file.name;
                 const reader = new FileReader();
                 reader.onload = (e) => { imageDataUrl = e.target.result; };
                 reader.readAsDataURL(file);
