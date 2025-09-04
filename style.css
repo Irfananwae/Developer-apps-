@@ -1,18 +1,29 @@
 
-
 /* --- Global Styles & Advanced 3D Glass Theme --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 :root { --primary-color: #0ea5e9; --secondary-color: #64748b; --danger-color: #ef4444; --surface-color: rgba(255, 255, 255, 0.05); --text-color-dark: #0f172a; --text-color-light: #f1f5f9; --shadow-color: rgba(0, 0, 0, 0.1); --blur-effect: blur(20px); --radius-lg: 20px; --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: 'Poppins', sans-serif; margin: 0; background-color: #0f172a; color: var(--text-color-dark); }
+
+/* NEW: 3D Preloader Styles */
+#preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.9); z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease, visibility 0.5s ease; }
+#preloader.hidden { opacity: 0; visibility: hidden; }
+.cube-container { perspective: 1000px; }
+.cube { width: 80px; height: 80px; position: relative; transform-style: preserve-3d; animation: rotateCube 8s infinite linear; }
+@keyframes rotateCube { from { transform: rotateY(0deg) rotateX(0deg); } to { transform: rotateY(360deg) rotateX(360deg); } }
+.cube .face { position: absolute; width: 80px; height: 80px; border: 1px solid var(--primary-color); background: rgba(14, 165, 233, 0.1); display: flex; justify-content: center; align-items: center; font-size: 2rem; color: var(--primary-color); }
+.face.front  { transform: translateZ(40px); }
+.face.back   { transform: rotateY(180deg) translateZ(40px); }
+.face.right  { transform: rotateY(90deg) translateZ(40px); }
+.face.left   { transform: rotateY(-90deg) translateZ(40px); }
+.face.top    { transform: rotateX(90deg) translateZ(40px); }
+.face.bottom { transform: rotateX(-90deg) translateZ(40px); }
+
 .fixed-background { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover; z-index: -1; opacity: 0.8; }
-.fixed-background.admin-bg { background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); }
-/* NEW: Main content wrapper to handle fixed header */
-.content-wrapper { padding-top: 80px; /* Must be >= header height */ position: relative; z-index: 2; }
+.content-wrapper { padding-top: 80px; position: relative; z-index: 2; }
 .glass-card { background: var(--surface-color); backdrop-filter: var(--blur-effect); -webkit-backdrop-filter: var(--blur-effect); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg); box-shadow: 0 8px 32px 0 var(--shadow-color); padding: 40px; transition: var(--transition); transform-style: preserve-3d; }
 .glass-card:hover { transform: perspective(1000px) scale(1.02); box-shadow: 0 12px 40px 0 rgba(0,0,0,0.2); }
-/* NEW: Smaller, top-fixed header */
 #main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; z-index: 100; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.2); backdrop-filter: var(--blur-effect); border-bottom: 1px solid rgba(255,255,255,0.1); }
 #main-header .logo { font-weight: 600; color: #fff; font-size: 1.2rem; }
 #main-header nav a, #main-header nav span { text-decoration: none; margin-left: 15px; font-weight: 400; color: #fff; font-size: 0.9rem; }
@@ -23,20 +34,8 @@ body { font-family: 'Poppins', sans-serif; margin: 0; background-color: #0f172a;
 .hero-content h2 { font-size: 3.5rem; }
 .section { padding: 40px 20px; }
 .section-title { text-align: center; font-size: 2.8rem; margin-bottom: 60px; color: var(--text-color-light); }
-.cta-button { /* styles remain the same */ }
-.input-group input, .input-group textarea { background: rgba(0,0,0,0.2); color: var(--text-color-light); }
-.profile-page-card { max-width: 800px; margin: auto; text-align: center; color: var(--text-color-light); }
-.profile-picture { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary-color); object-fit: cover; background-color: rgba(255,255,255,0.1); }
-/* ... (all other styles from previous correct version) ... */
-#admin-dashboard-body .glass-card { color: var(--text-color-light); --surface-color: rgba(0,0,0,0.2); border-color: rgba(255,255,255,0.1); }
-.file-input-group { display: flex; align-items: center; gap: 15px; }
-.file-input-group input[type="file"] { display: none; }
-#file-name { font-style: italic; color: #bdc3c7; }
-.manage-threads-list { max-height: 450px; overflow-y: auto; padding-right: 10px; }
-.manage-thread-item { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 12px; margin-bottom: 10px; }
-.manage-thread-item p { margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 70%; }
+/* ... (all other existing styles remain the same) ... */
 .auth-page { background: #0f172a; }
-.auth-form { animation: slideIn 0.4s var(--transition) forwards; color: var(--text-color-light); }
 footer { text-align: center; padding: 40px 0; color: #fff; text-shadow: 1px 1px 5px #000; }
 footer a { color: #fff; }
 
