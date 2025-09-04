@@ -3,7 +3,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- This meta tag fixes the mobile zoom issue -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Developer Apps - Live Showcase</title>
     <link rel="stylesheet" href="style.css">
@@ -19,20 +18,18 @@
             </nav>
         </div>
     </header>
-    <main class="scrollable-content">
+    <main class="content-wrapper">
         <section id="hero">
             <div class="hero-content glass-card">
                 <h2 class="gradient-text">Your Vision, Engineered.</h2>
                 <p>Custom web and mobile applications built with precision and passion.</p>
             </div>
         </section>
-
-        <!-- NEW: Integrated Developer Profile Section -->
         <section id="developer-profile" class="section">
             <div class="container">
                  <div class="profile-page-card glass-card">
                     <div class="profile-header">
-                        <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture">
+                        <img id="profile-picture" alt="AI Generated Profile Picture" class="profile-picture">
                         <div class="profile-title">
                             <h3 id="profile-name"></h3>
                             <div class="verified-tick"><i class="fas fa-check"></i></div>
@@ -55,7 +52,6 @@
                 </div>
             </div>
         </section>
-
         <section id="threads-feed" class="section">
             <div class="container" id="threads-container">
                  <h2 class="section-title gradient-text">Live Feed</h2>
