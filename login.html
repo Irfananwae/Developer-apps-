@@ -8,23 +8,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body <!-- NEW: 3D Preloader -->
-<div id="preloader">
-    <div class="cube-container">
-        <div class="cube">
-            <div class="face front"><i class="fas fa-bolt"></i></div>
-            <div class="face back"><i class="fas fa-code"></i></div>
-            <div class="face right"><i class="fas fa-rocket"></i></div>
-            <div class="face left"><i class="fas fa-user-shield"></i></div>
-            <div class="face top"><i class="fas fa-server"></i></div>
-            <div class="face bottom"><i class="fas fa-mobile-alt"></i></div>
-        </div>
-    </div>
-</div>
-    class="auth-page">
+<body class="auth-page login-bg">
+    <!-- NEW: Dynamic Typing Background -->
+    <div id="background-animation"></div>
+
     <div class="auth-container">
         <form id="login-form" class="auth-form active glass-card">
-            <h2 class="form-title gradient-text">Client Login</h2>
+            <h1 class="logo"><i class="fas fa-bolt"></i> Developer Apps</h1>
+            <h2 class="form-title gradient-text">Client Portal Login</h2>
             <div class="input-group">
                 <i class="fas fa-envelope"></i>
                 <input type="email" id="login-email" placeholder="Email" required>
@@ -33,7 +24,7 @@
                 <i class="fas fa-lock"></i>
                 <input type="password" id="login-password" placeholder="Password" required>
             </div>
-            <button type="submit" class="cta-button">Login</button>
+            <button type="submit" class="cta-button">Secure Login</button>
             <p id="login-error" class="error-message"></p>
             <p class="form-switch-text">No account? <a href="signup.html">Create One</a></p>
         </form>
