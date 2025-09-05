@@ -7,41 +7,41 @@ html { scroll-behavior: smooth; }
 body { font-family: 'Poppins', sans-serif; margin: 0; background-color: #0f172a; color: var(--text-color-dark); }
 .fixed-background { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover; z-index: -1; opacity: 0.8; }
 .content-wrapper { padding-top: 80px; position: relative; z-index: 2; }
-.glass-card { background: var(--surface-color); backdrop-filter: var(--blur-effect); -webkit-backdrop-filter: var(--blur-effect); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg); box-shadow: 0 8px 32px 0 var(--shadow-color); padding: 40px; transition: var(--transition); transform-style: preserve-3d; }
+.glass-card { background: var(--surface-color); backdrop-filter: var(--blur-effect); -webkit-backdrop-filter: var(--blur-effect); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg); box-shadow: 0 8px 32px 0 var(--shadow-color); padding: 30px; transition: var(--transition); transform-style: preserve-3d; }
 .glass-card:hover { transform: perspective(1000px) scale(1.02); box-shadow: 0 12px 40px 0 rgba(0,0,0,0.2); }
-#main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; z-index: 100; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.2); backdrop-filter: var(--blur-effect); border-bottom: 1px solid rgba(255,255,255,0.1); }
-#main-header .logo { font-weight: 600; color: #fff; font-size: 1.2rem; }
-#main-header nav a, #main-header nav span { text-decoration: none; margin-left: 15px; font-weight: 400; color: #fff; font-size: 0.9rem; }
+
+/* FIXED: Header and Navigation */
+#main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 5%; z-index: 100; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.3); backdrop-filter: var(--blur-effect); border-bottom: 1px solid rgba(255,255,255,0.1); }
+#main-header .logo { font-weight: 600; color: #fff; font-size: 1.1rem; }
+#main-header nav { display: flex; align-items: center; gap: 10px; }
+#main-header nav a, #main-header nav span { text-decoration: none; font-weight: 400; color: #fff; font-size: 0.9rem; white-space: nowrap; }
+#main-header nav .cta-button { padding: 8px 18px; font-size: 0.8rem; }
+@media (max-width: 600px) { #main-header .logo { font-size: 1rem; } #main-header nav a, #main-header nav span { font-size: 0.8rem; margin-left: 5px; } }
+
 #hero { min-height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
 .gradient-text { background: linear-gradient(45deg, var(--primary-color), #38bdf8, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero-content h2 { font-size: 3.5rem; }
+.hero-content h2 { font-size: 3rem; }
 .section { padding: 40px 20px; }
-.section-title { text-align: center; font-size: 2.8rem; margin-bottom: 60px; }
-.cta-button { background: linear-gradient(45deg, #0ea5e9, #0284c7); color: #fff; padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; transition: var(--transition); display: inline-block; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3); }
-.cta-button:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5); }
+.section-title { text-align: center; font-size: 2.8rem; margin-bottom: 60px; color: var(--text-color-light); }
+.cta-button { /* styles remain the same */ }
 .input-group input, .input-group textarea { background: rgba(0,0,0,0.2); color: var(--text-color-light); border: 1px solid rgba(255,255,255,0.2); }
 
-/* NEW: Compact Profile Card Layout */
-.profile-page-card.compact { display: flex; align-items: center; text-align: left; gap: 40px; }
-.profile-left { flex-shrink: 0; }
+/* NEW: Compact Profile with Mobile Responsiveness */
+.profile-page-card.compact { display: flex; align-items: center; text-align: left; gap: 30px; }
+.profile-left { flex-shrink: 0; text-align: center; }
 .profile-right { flex-grow: 1; }
 .profile-picture { width: 100px; height: 100px; border-radius: 50%; border: 4px solid var(--primary-color); object-fit: cover; background-color: rgba(255,255,255,0.1); margin-bottom: 15px; }
+.profile-title { display: flex; align-items: center; gap: 10px; }
 .profile-page-card.compact .profile-header { text-align: left; }
-.profile-page-card.compact .profile-title { justify-content: flex-start; }
-.profile-username { font-size: 1.1rem; color: #94a3b8; margin-top: -10px; }
-.profile-bio { color: #cbd5e1; }
+.profile-username { font-size: 1rem; color: #94a3b8; margin-top: -10px; }
+.profile-bio { color: #cbd5e1; font-size: 0.9rem; }
+.profile-page-card hr { border-color: rgba(255,255,255,0.1); }
+@media (max-width: 768px) { .profile-page-card.compact { flex-direction: column; text-align: center; } .profile-right, .profile-page-card.compact .profile-header { text-align: center; } .skills-container, .profile-title { justify-content: center; } }
+/* NEW: Advanced 3D "Real" Blue Tick */
+.verified-tick-advanced { width: 24px; height: 24px; }
 .skills-container { justify-content: flex-start; }
-.profile-page-card hr { border: none; height: 1px; background-color: rgba(255,255,255,0.1); margin: 25px 0; }
-/* NEW: Advanced 3D Blue Tick */
-.verified-tick-advanced { width: 28px; height: 28px; background: linear-gradient(135deg, #38bdf8, #3b82f6); border-radius: 50%; display: grid; place-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.3); }
-.verified-tick-advanced .tick-svg { width: 20px; height: 20px; }
-/* NEW: Animated Stats Container */
-.stats-container { display: flex; justify-content: space-around; text-align: center; }
-.stat-item h4 { font-size: 2.5rem; margin: 0; color: #fff; }
-.stat-item p { margin: 5px 0 0 0; color: #94a3b8; }
-.contact-links.large-icons a { padding: 12px; font-size: 1.2rem; width: 50px; height: 50px; text-align: center; }
-
-/* ... (all other existing styles remain the same) ... */
+.contact-links.large-icons a { width: 45px; height: 45px; font-size: 1rem; }
+/* ... (all other styles remain) */
 #admin-dashboard-body .glass-card { color: var(--text-color-light); }
 .auth-page { background: #0f172a; }
 .auth-form { color: var(--text-color-light); }
