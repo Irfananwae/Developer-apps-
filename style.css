@@ -6,26 +6,38 @@
 html { scroll-behavior: smooth; }
 body { font-family: 'Poppins', sans-serif; margin: 0; background-color: #0f172a; color: var(--text-color-dark); }
 .fixed-background { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover; z-index: -1; opacity: 0.8; }
-.fixed-background.admin-bg { background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); }
 .content-wrapper { padding-top: 80px; position: relative; z-index: 2; }
 .glass-card { background: var(--surface-color); backdrop-filter: var(--blur-effect); -webkit-backdrop-filter: var(--blur-effect); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg); box-shadow: 0 8px 32px 0 var(--shadow-color); padding: 30px; transition: var(--transition); transform-style: preserve-3d; }
 .glass-card:hover { transform: perspective(1000px) scale(1.02); box-shadow: 0 12px 40px 0 rgba(0,0,0,0.2); }
 
-/* FIXED: Header and Navigation */
+/* --- Header --- */
 #main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 10px 5%; z-index: 100; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.3); backdrop-filter: var(--blur-effect); border-bottom: 1px solid rgba(255,255,255,0.1); }
 #main-header .logo { font-weight: 600; color: #fff; font-size: 1.1rem; }
-#main-header nav { display: flex; align-items: center; gap: 10px; }
-#main-header nav a, #main-header nav span { text-decoration: none; font-weight: 400; color: #fff; font-size: 0.9rem; white-space: nowrap; }
-#main-header nav .cta-button { padding: 8px 18px; font-size: 0.8rem; }
-@media (max-width: 600px) { #main-header .logo { font-size: 1rem; } #main-header nav a, #main-header nav span { font-size: 0.8rem; margin-left: 5px; } }
+#main-header nav a, #main-header nav span { text-decoration: none; font-weight: 400; color: #fff; font-size: 0.9rem; }
 
-#hero { min-height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
-.gradient-text { background: linear-gradient(45deg, var(--primary-color), #38bdf8, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero-content h2 { font-size: 3rem; }
-.section { padding: 40px 20px; }
-.section-title { text-align: center; font-size: 2.8rem; margin-bottom: 60px; color: var(--text-color-light); }
-.cta-button { /* styles remain the same */ }
-.input-group input, .input-group textarea { background: rgba(0,0,0,0.2); color: var(--text-color-light); border: 1px solid rgba(255,255,255,0.2); }
+/* --- Advanced Auth Pages (Login/Signup) --- */
+.auth-page { display: flex; align-items: center; justify-content: center; min-height: 100vh; overflow: hidden; position: relative; }
+.login-bg { background: #0f172a url('https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover; }
+.signup-bg { background: #0f172a url('https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover; }
+.auth-container { max-width: 450px; width: 100%; padding: 20px; }
+.auth-form { color: var(--text-color-light); animation: slideIn 0.5s var(--transition) forwards; position: relative; overflow: hidden; }
+@keyframes slideIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.auth-form .logo { text-align: center; font-size: 1.5rem; margin-bottom: 10px; }
+.auth-form .form-title { text-align: center; }
+/* NEW: Mouse-follow glow effect */
+.auth-form::before { content: ''; position: absolute; top: var(--mouse-y, -100%); left: var(--mouse-x, -100%); width: 200px; height: 200px; background: radial-gradient(circle, rgba(14, 165, 233, 0.3) 0%, rgba(14, 165, 233, 0) 60%); transform: translate(-50%, -50%); transition: top 0.2s, left 0.2s; z-index: -1; }
+/* NEW: Typing background animation */
+#background-animation { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
+.floating-text { position: absolute; font-size: 2rem; color: rgba(255, 255, 255, 0.05); font-family: 'Courier New', Courier, monospace; font-weight: bold; animation: drift 30s infinite linear alternate; white-space: nowrap; }
+@keyframes drift { from { transform: translateX(-20%); } to { transform: translateX(20%); } }
+
+/* ... (all other styles for profile, threads, dashboard, etc. remain the same) ... */
+.profile-page-card.compact { display: flex; align-items: center; text-align: left; gap: 30px; color: var(--text-color-light); }
+.verified-tick-advanced { width: 24px; height: 24px; }
+footer { text-align: center; padding: 40px 0; color: #fff; text-shadow: 1px 1px 5px #000; }
+footer a { color: #fff; }
+
+
 
 /* NEW: Compact Profile with Mobile Responsiveness */
 .profile-page-card.compact { display: flex; align-items: center; text-align: left; gap: 30px; }
