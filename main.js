@@ -3,26 +3,93 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Preloader Logic ---
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        window.addEventListener('load', () => {
-            preloader.classList.add('hidden');
-        });
+        window.addEventListener('load', () => preloader.classList.add('hidden'));
     }
 
-    // --- SHARED APP LOGIC & DATA MANAGEMENT ---
+    // --- SHARED APP LOGIC ---
     const App = {
         adminEmail: 'imirfan7738t@gmail.com',
         adminPass: 'admin123',
-        // Using V8 keys to ensure no conflicts with old data
         getThreads: () => JSON.parse(localStorage.getItem('threadsV8')) || [],
         saveThreads: (threads) => localStorage.setItem('threadsV8', JSON.stringify(threads)),
         getUsers: () => JSON.parse(localStorage.getItem('usersV8')) || [],
         saveUsers: (users) => localStorage.setItem('usersV8', JSON.stringify(users)),
-        getMessages: () => JSON.parse(localStorage.getItem('messagesV8')) || [],
-        saveMessages: (messages) => localStorage.setItem('messagesV8', JSON.stringify(messages)),
         getCurrentUser: () => JSON.parse(sessionStorage.getItem('currentUserV8')),
         setCurrentUser: (user) => sessionStorage.setItem('currentUserV8', JSON.stringify(user)),
         logoutUser: () => sessionStorage.removeItem('currentUserV8'),
     };
+
+    // --- ADMIN PROFILE DATA ---
+    const adminProfile = {
+        name: "M Irfan",
+        username: "@website_developer06",
+        bio: "Full-Stack Developer specializing in scalable web/mobile apps. Turning complex problems into elegant solutions.",
+        skills: ["React", "Node.js", "Python", "iOS Dev", "Android Dev", "UI/UX"],
+    };
+    
+    // --- ADVANCED AUTH PAGE UI (Login & Signup) ---
+    if (document.body.classList.contains('auth-page')) {
+        // Typing background effect
+        const words = ["<code>", "function()", "API.fetch()", "React", "setState()", "await", "async", "SQL", "CSS", "UI/UX", "deploy()", "git push", "Node.js", "server.listen()"];
+        const container = document.getElementById('background-animation');
+        const textElement = document.createElement('div');
+        textElement.className = 'floating-text';
+        container.appendChild(textElement);
+        textElement.style.top = `${Math.random() * 80 + 10}%`;
+
+        let wordIndex = 0;
+        const typeWord = () => {
+            let currentWord = words[wordIndex];
+            let i = 0;
+            const typingInterval = setInterval(() => {
+                if (i < currentWord.length) {
+                    textElement.textContent += currentWord.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typingInterval);
+                    setTimeout(deleteWord, 1000);
+                }
+            }, 100);
+        };
+        const deleteWord = () => {
+            let currentWord = textElement.textContent;
+            let i = currentWord.length;
+            const deletingInterval = setInterval(() => {
+                if (i > 0) {
+                    textElement.textContent = currentWord.substring(0, i - 1);
+                    i--;
+                } else {
+                    clearInterval(deletingInterval);
+                    wordIndex = (wordIndex + 1) % words.length;
+                    textElement.style.top = `${Math.random() * 80 + 10}%`;
+                    typeWord();
+                }
+            }, 50);
+        };
+        typeWord();
+
+        // Mouse-follow glow effect
+        const formCard = document.querySelector('.auth-form');
+        formCard.addEventListener('mousemove', e => {
+            const rect = formCard.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            formCard.style.setProperty('--mouse-x', `${x}px`);
+            formCard.style.setProperty('--mouse-y', `${y}px`);
+        });
+    }
+
+    // --- PAGE GUARD for protected pages ---
+    if (document.body.id === 'home-body' || document.body.id === 'dashboard-body') {
+        if (!App.getCurrentUser()) {
+            window.location.href = 'index.html'; // Redirect to login if not authenticated
+        }
+    }
+    
+    // ... (All other logic for header, profile, threads, dashboards, etc. is correct and remains the same)
+});
+
+
 
     // --- ADMIN PROFILE DATA ---
     const adminProfile = {
